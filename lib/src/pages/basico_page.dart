@@ -8,47 +8,61 @@ class BasicoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
           _crearImagen(),
           _crearTitulo(),
           _crearAcciones(),
           _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
           
         ],
+        ),
       )
     );
   }
 
   Widget _crearImagen() {
-    return Image(
-            image: NetworkImage('https://shotkit.com/wp-content/uploads/2020/08/night-landscape-photography-featured.jpg'),
-          );
+    return Container(
+      width: double.infinity,
+      child: Image(
+              image: NetworkImage('https://shotkit.com/wp-content/uploads/2020/08/night-landscape-photography-featured.jpg'),
+              height: 200.0,
+              fit: BoxFit.cover,
+            ),
+    );
   }
 
   Widget _crearTitulo() {
-    return Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Estrella fugaz en las montañas', style: estiloTitulo ),
-                      SizedBox(height: 7.0 ),
-                      Text('Anocheser hermoso', style: estiloSubTitulo ),
-                    ],
+    return SafeArea(
+      child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Estrella fugaz en las montañas', style: estiloTitulo ),
+                        SizedBox(height: 7.0 ),
+                        Text('Anocheser hermoso', style: estiloSubTitulo ),
+                      ],
+                    ),
                   ),
-                ),
-
-                Icon(Icons.star, color: Colors.red, size: 30.0 ),
-                Text('41', style: TextStyle( fontSize: 20.0) )
-
-              ],
+    
+                  Icon(Icons.star, color: Colors.red, size: 30.0 ),
+                  Text('41', style: TextStyle( fontSize: 20.0) )
+    
+                ],
+              ),
             ),
-          );
+    );
   }
 
   Widget _crearAcciones() {
@@ -76,11 +90,13 @@ class BasicoPage extends StatelessWidget {
   }
 
   Widget _crearTexto() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia bibendum risus, eget tempor diam facilisis a. Nam velit dui, eleifend a sem at, facilisis luctus enim. In hac habitasse platea dictumst. Vivamus egestas ac velit non lobortis. Suspendisse hendrerit elit nec tincidunt dapibus. Vestibulum id elit lorem. Suspendisse at tempus diam. Mauris sed dolor interdum mi ultrices sodales in ac diam.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric( horizontal: 40.0 ),
+        child: Text(
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia bibendum risus, eget tempor diam facilisis a. Nam velit dui, eleifend a sem at, facilisis luctus enim. In hac habitasse platea dictumst. Vivamus egestas ac velit non lobortis. Suspendisse hendrerit elit nec tincidunt dapibus. Vestibulum id elit lorem. Suspendisse at tempus diam. Mauris sed dolor interdum mi ultrices sodales in ac diam.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
